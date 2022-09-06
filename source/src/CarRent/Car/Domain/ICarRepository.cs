@@ -1,7 +1,9 @@
-﻿namespace CarRent.Car.Domain
+﻿using CarRent.Common.Domain;
+
+namespace CarRent.Car.Domain
 {
     //Repository Pattern
-    public interface ICarRepository
+    public interface ICarRepository : IRepository<Car>
     {
         Car GetById(Guid id);
         Car GetByCarNumber(string carNumber);

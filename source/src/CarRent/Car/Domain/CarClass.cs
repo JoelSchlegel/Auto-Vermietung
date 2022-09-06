@@ -1,6 +1,14 @@
-﻿namespace CarRent.Car.Domain
+﻿using CarRent.Common.Domain;
+
+namespace CarRent.Car.Domain
 {
-    public class CarClass
+    public class CarClass : Entity, IAggregateRoot
     {
+        public CarClass()
+        {
+
+        }
+
+
     }
 }
