@@ -17,8 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Customer\" />
-    <Folder Include="Rent\Domain\" />
+    <Folder Include="Customer\Api\" />
+    <Folder Include="Customer\Infrastructure\" />
+    <Folder Include="Rent\Api\" />
+    <Folder Include="Rent\Infrastructure\" />
   </ItemGroup>
 
 </Project>
