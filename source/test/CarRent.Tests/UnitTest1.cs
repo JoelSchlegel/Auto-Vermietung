@@ -8,7 +8,7 @@ namespace CarRent.Tests
         [Fact]
         public void Test1()
         {
-            var car = new Car();
+            //var car = new Car();
         }
     }
 }

@@ -11,16 +11,16 @@
         public CarRepository(CarContext carContext)
         {
             _carContext = carContext;
-            carContext.Database.Migrate();
+            //carContext.Database.Migrate();
         }
         public void Add(Car car)
         {
-            throw new NotImplementedException();
+            _carContext.Cars.Add(car);
         }
 
         public Car GetByCarNumber(string carNumber)
         {
-            throw new NotImplementedException();
+            return _carContext.Cars.First(c => c.CarNumber == carNumber);
         }
 
         public Car GetById(Guid id)
@@ -31,12 +31,12 @@
 
         public void Remove(Car car)
         {
-            throw new NotImplementedException();
+            _carContext.Cars.Remove(car);
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carContext.Update(car);
         }
     }
 }

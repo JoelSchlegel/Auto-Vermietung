@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarRent.Car.Domain;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,13 @@ namespace CarRent.Car.Api.v1
     [ApiController]
     public class CarController : ControllerBase
     {
+        private CarService _carService;
+
+        public CarController(CarService carService)
+        {
+            _carService = carService;
+        }
+
         // GET: api/<CarController>
         [HttpGet]
         public IEnumerable<CarResponseDto> Get()
@@ -27,27 +35,30 @@ namespace CarRent.Car.Api.v1
 
         // GET api/<CarController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public CarResponseDto Get(Guid id)
         {
-            return "value";
+            return _carService.GetCar(id);
         }
 
         // POST api/<CarController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CarRequestDto value)
         {
+            _carService.AddCar(value);
         }
 
         // PUT api/<CarController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put([FromBody] CarRequestDto value)
         {
+            _carService.UpdateCar(value);
         }
 
         // DELETE api/<CarController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(CarRequestDto value)
         {
+            _carService.RemoveCar(value);
         }
     }
 }
