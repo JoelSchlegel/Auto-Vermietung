@@ -7,6 +7,7 @@ namespace CarRent.Car.Domain
     {
         //Pocos
         public string CarNumber { get; }
+        public CarClass CarClass { get; }
         public Brand Brand { get; }
         public Type Type { get; }
     }

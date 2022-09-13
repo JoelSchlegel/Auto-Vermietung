@@ -2,6 +2,7 @@
 {
     using CarRent.Car.Domain;
     using CarRent.Car.Infrastructure.Persistence;
+    using Microsoft.EntityFrameworkCore;
 
     public class CarRepository : ICarRepository
     {
@@ -10,6 +11,7 @@
         public CarRepository(CarContext carContext)
         {
             _carContext = carContext;
+            carContext.Database.Migrate();
         }
         public void Add(Car car)
         {
